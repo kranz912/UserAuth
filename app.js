@@ -12,7 +12,6 @@ app.listen(3000, '0.0.0.0', function(){
 });
 
 app.post('/api/User',function(request,response){
-    console.log(request.body);
     dbclient.addUser(request.body)
     .then((resp)=>{
         response.send(resp.errmsg);
