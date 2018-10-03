@@ -11,7 +11,7 @@ var _db;
 
 module.exports = {
     connect:connect,
-    getDatabase: getDatabase,
+    addUser: addUser,
     close: close
     
 }
@@ -20,12 +20,35 @@ function connect(){
   MongoDbClient.connect(url,{ useNewUrlParser: true },(err,mongoclient)=>{
    assert.equal(null,err);
     _db = mongoclient.db(database);
+    console.log('connected to db');
+    createCollection(_db);
+
   });
 }
 
-function getDatabase(){
-    return _db;
+function addUser(user){
+    return _db.collection('Users').insertOne(user);
 }
 function close(){
     MongoDbClient.close();
+}
+function createCollection(db){
+    db.createCollection('Users',{
+        validator: {$jsonSchema:{
+            bsonType: "object",
+            required: ['Username','Password'],
+            properties: {
+                Username: {
+                    bsonType: "string",
+                    description: "Username is required"
+                },
+                Password: {
+                    bsonType: "string",
+                    description: "Password is required"
+                }
+            }
+        }},
+        validationLevel: 'strict',
+        validationAction: 'error'
+    });
 }
