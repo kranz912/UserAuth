@@ -1,5 +1,4 @@
 const MongoDbClient = require('mongodb').MongoClient
-    , Server = require('mongodb').Server
     , assert =  require('assert')
     , validation = require('../Helpers/Validation/Validation')
     , crypto = require('crypto');
@@ -8,7 +7,6 @@ const database = 'UserAuth';
 
 const secret ='asjdi81j2m3109jmoazsdasidajn12934u123lkasdasd91u2391u2039123123';
 
-//var client =  new MongoDbClient(new Server('localhost',27017));
 var _db;
 
 module.exports = {
@@ -17,7 +15,6 @@ module.exports = {
     isAuthorized, isAuthorized,
     validateToken, validateToken,
     close: close
-    
 }
 
 
@@ -86,7 +83,7 @@ function isAuthorized(user){
 function isValidToken(tokentime, timenow){
     console.log(tokentime);
     console.log((timenow- tokentime));
-    return (timenow- tokentime) >60;
+    return Math.floor((timenow- tokentime)/60000) >60;
 }
 function validateToken(token){
     return new Promise((resolve,reject)=>{
