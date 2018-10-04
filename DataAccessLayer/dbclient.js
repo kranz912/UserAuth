@@ -83,7 +83,7 @@ function isAuthorized(user){
 function isValidToken(tokentime, timenow){
     console.log(tokentime);
     console.log((timenow- tokentime));
-    return Math.floor((timenow- tokentime)/60000) >60;
+    return Math.floor((timenow- tokentime)/60000) <60;
 }
 function validateToken(token){
     return new Promise((resolve,reject)=>{
