@@ -2,8 +2,8 @@ const MongoDbClient = require('mongodb').MongoClient
     , assert =  require('assert')
     , validation = require('../Helpers/Validation/Validation')
     , crypto = require('crypto');
-const url = 'mongodb://artn:A192ma123nasdb@ds223343.mlab.com:23343/userauth';
-const database = 'UserAuth';
+const url = 'mongodb://artn:mongo012mh@ds223343.mlab.com:23343/userauth';
+const database = 'userauth';
 
 const secret ='asjdi81j2m3109jmoazsdasidajn12934u123lkasdasd91u2391u2039123123';
 
