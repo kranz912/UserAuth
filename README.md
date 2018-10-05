@@ -1,13 +1,13 @@
 # UserAuth
 NodeJS Authentication API
 
-**Show User**
+**Add User**
 ----
-  Returns json data about a single user.
+  Add User
 
 * **URL**
 
-  /users/:id
+  /api/User
 
 * **Method:**
 
@@ -27,3 +27,28 @@ NodeJS Authentication API
     **Content:** `"Password does not meet the requirements"`
     
     **Content:** `"Invalid Username"`
+
+
+**Login User**
+----
+  Add User
+
+* **URL**
+
+  /api/Auth
+
+* **Method:**
+
+  `POST`
+
+* **Body**
+
+  `{Username: "artn", Password:"askdoaskdas" }`
+
+* **Success Response:**
+    **Content:** `"{token: <token>}"`
+ 
+* **Error Response:**
+
+    **Content:** `"Authentication Error"`
+
