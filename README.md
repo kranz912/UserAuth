@@ -72,7 +72,7 @@ Endpoint
 
 * **Body**
 
-  `{Token:"<token>" }`
+  `{token:"<token>" }`
 
 * **Success Response:**
     **Content:** `<username>`
