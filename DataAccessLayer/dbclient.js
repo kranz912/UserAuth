@@ -12,8 +12,8 @@ var _db;
 module.exports = {
     connect:connect,
     addUser: addUser,
-    isAuthorized, isAuthorized,
-    validateToken, validateToken,
+    isAuthorized: isAuthorized,
+    validateToken: validateToken,
     close: close
 }
 
