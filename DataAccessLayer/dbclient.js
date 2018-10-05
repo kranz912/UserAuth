@@ -49,7 +49,7 @@ function addUser(user){
             if(result==null){
                 user.Password = encrypt(user.Password);
                 _db.collection('Users').insertOne(user).then((result)=>{
-                    resolve(result);
+                    resolve('Registration Sucessfuly');
                 },(err)=>{
                     reject(err);
                 });
@@ -64,8 +64,8 @@ function isAuthorized(user){
     return new Promise((resolve,reject)=>{
         user.Password = encrypt(user.Password);
         _db.collection('Users').findOne({Username:user.Username, Password: user.Password},(err,result)=>{
-            if(result!=null){
-                var datetime = Date.now();
+            if(result!==null){
+                var datetime = Date.now()/1000;
                 var token = createToken(user.Username,datetime);
            
                 _db.collection('Token').insertOne({Username:user.Username, Token:token, timestamp: datetime})
@@ -82,7 +82,7 @@ function isAuthorized(user){
 }
 function isValidToken(tokentime, timenow){
     console.log(tokentime);
-    console.log((timenow- tokentime));
+    console.log(timenow- tokentime);
     return Math.floor((timenow- tokentime)/60000) <60;
 }
 function validateToken(token){
