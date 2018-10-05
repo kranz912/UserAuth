@@ -71,9 +71,9 @@ NodeJS Authentication API
   `{Token:"<token>" }`
 
 * **Success Response:**
-    **Content:** `"{token: <token>}"`
+    **Content:** `<username>`
  
 * **Error Response:**
 
-    **Content:** `"Authentication Error"`
+    **Content:** `"Token Expired"`
 
