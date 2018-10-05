@@ -65,14 +65,14 @@ function isAuthorized(user){
         user.Password = encrypt(user.Password);
         _db.collection('Users').findOne({Username:user.Username, Password: user.Password},(err,result)=>{
             if(result!==null){
-                var datetime = Date.now()/1000;
+                var datetime = Date.now();
                 var token = createToken(user.Username,datetime);
            
                 _db.collection('Token').insertOne({Username:user.Username, Token:token, timestamp: datetime})
                     .then((result)=>{
                        
                         resolve({token : token});
-                    });
+                    }, (err)=> reject(err));
             }
             else{
                 reject('Authentication Error');
@@ -144,7 +144,7 @@ function createCollection(db){
                         bsonType: "string"
                     },
                     timestamp:{
-                        bsonType: "long"
+                       // bsonType: "timestamp"
                     }
                 }
             }
