@@ -15,7 +15,7 @@ NodeJS Authentication API
 
 * **Body**
 
-  `{Username: "artn", Password:"askdoaskdas" }`
+  `{Username: "<username>", Password:"<password>" }`
 
 * **Success Response:**
     **Content:** `"Registration Sucessfuly"`
@@ -31,7 +31,7 @@ NodeJS Authentication API
 
 **Login User**
 ----
-  Add User
+   Login user returns Token
 
 * **URL**
 
@@ -43,7 +43,32 @@ NodeJS Authentication API
 
 * **Body**
 
-  `{Username: "artn", Password:"askdoaskdas" }`
+  `{Username: "<username>", Password:"<password>" }`
+
+* **Success Response:**
+    **Content:** `"{token: <token>}"`
+ 
+* **Error Response:**
+
+    **Content:** `"Authentication Error"`
+    
+    
+
+**Token Auth**
+----
+  Checks if token is valid returns Username
+
+* **URL**
+
+  /api/Auth
+
+* **Method:**
+
+  `POST`
+
+* **Body**
+
+  `{Token:"<token>" }`
 
 * **Success Response:**
     **Content:** `"{token: <token>}"`
