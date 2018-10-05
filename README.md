@@ -1,13 +1,13 @@
 # UserAuth
 NodeJS Authentication API
 
-**Show User**
+**Add User**
 ----
-  Returns json data about a single user.
+  Add User
 
 * **URL**
 
-  /users/:id
+  /api/User
 
 * **Method:**
 
@@ -15,7 +15,7 @@ NodeJS Authentication API
 
 * **Body**
 
-  `{Username: "artn", Password:"askdoaskdas" }`
+  `{Username: "<username>", Password:"<password>" }`
 
 * **Success Response:**
     **Content:** `"Registration Sucessfuly"`
@@ -27,3 +27,53 @@ NodeJS Authentication API
     **Content:** `"Password does not meet the requirements"`
     
     **Content:** `"Invalid Username"`
+
+
+**Login User**
+----
+   Login user returns Token
+
+* **URL**
+
+  /api/Auth
+
+* **Method:**
+
+  `POST`
+
+* **Body**
+
+  `{Username: "<username>", Password:"<password>" }`
+
+* **Success Response:**
+    **Content:** `"{token: <token>}"`
+ 
+* **Error Response:**
+
+    **Content:** `"Authentication Error"`
+    
+    
+
+**Token Auth**
+----
+  Checks if token is valid returns Username
+
+* **URL**
+
+  /api/TokenAuth
+
+* **Method:**
+
+  `POST`
+
+* **Body**
+
+  `{Token:"<token>" }`
+
+* **Success Response:**
+    **Content:** `"{token: <token>}"`
+ 
+* **Error Response:**
+
+    **Content:** `"Authentication Error"`
+
