@@ -60,7 +60,7 @@ NodeJS Authentication API
 
 * **URL**
 
-  /api/Auth
+  /api/TokenAuth
 
 * **Method:**
 
