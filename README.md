@@ -25,4 +25,5 @@ NodeJS Authentication API
     **Content:** `"User already exist"`
 
     **Content:** `"Password does not meet the requirements"`
+    
     **Content:** `"Invalid Username"`
